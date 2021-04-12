@@ -23,6 +23,10 @@ let displayTide = [{
   "t": 0,
   "type": "X"
 }];
+let displayTides = [{
+  "t": 0,
+  "type": "X"
+}];
 
 let fsWait = false;
 //redirectPort();
@@ -58,29 +62,35 @@ app.get("/home", function (req, res) {
         let hours = predDate.getHours();
         let minutes = predDate.getMinutes();
         let AP = hours >= 12 ? "pm" : "am";
+
+
         //hours = hours % 12;
 
         // To display "0" as "12" 
         //hours = hours ? hours : 12;
         hours = hours < 10 ? '0' + hours : hours;
         minutes = minutes < 10 ? '0' + minutes : minutes;
-        if (day > new Date(element.t)) {
-          console.log("Already Happened", hours + ":" + minutes, index)
-          predictions[index].t = hours + ":" + minutes;
-          predictions[index].ap = AP;
-          displayTide[0] = predictions[index];
-          displayTide[1] = predictions[index + 1];
-          displayTide[2] = predictions[index + 2];
-          displayTide[3] = predictions[index + 3];
-
-          //console.log(`${Date(day).toLocaleString()}<${Date(element).toLocaleString()}`);
-        }
-        if (day < new Date(element.t)) {
-          console.log("Still Coming", new Date(element.t.toLocaleString()), index)
-          predictions[index].t = hours + ":" + minutes;
-          predictions[index].ap = AP;
-          //console.log(`${Date(day).toLocaleString()}<${Date(element).toLocaleString()}`);
-        }
+        //console.log(index, predDate, predictions[index]);
+        predictions[index].t = hours + ":" + minutes;
+        predictions[index].ap = AP;
+        displayTide[index] = predictions[index];
+        /*  if (day > new Date(element.t)) {
+           //console.log("Already Happened", hours + ":" + minutes, index)
+           predictions[index].t = hours + ":" + minutes;
+           predictions[index].ap = AP;
+           displayTide[0] = predictions[index];
+           displayTide[1] = predictions[index + 1];
+           displayTide[2] = predictions[index + 2];
+           displayTide[3] = predictions[index + 3];
+ 
+           //console.log(`${Date(day).toLocaleString()}<${Date(element).toLocaleString()}`);
+         }
+         if (day < new Date(element.t)) {
+           console.log("Still Coming", new Date(element.t.toLocaleString()), index)
+           predictions[index].t = hours + ":" + minutes;
+           predictions[index].ap = AP;
+           //console.log(`${Date(day).toLocaleString()}<${Date(element).toLocaleString()}`);
+         } */
         if (day == new Date(element.t)) {
           Reload();
         }
@@ -91,11 +101,16 @@ app.get("/home", function (req, res) {
       /* if (displayTide[1] == 0) {
         Reload()
       }else { */
+      displayTides[0] = displayTide[0];
+      displayTides[1] = displayTide[1];
+      displayTides[2] = displayTide[2];
+      displayTides[3] = displayTide[3];
+
       console.log(currentWeather);
-      console.log(displayTide);
+      console.log(displayTides);
       res.render("home", {
         location: configData.location, station: configData.stationID,
-        tides: displayTide, wifiCon: configData.connected, conditions: currentWeather.description,
+        tides: displayTides, wifiCon: configData.connected, conditions: currentWeather.description,
         temperature: Math.trunc(currentWeather.temp), weatherIcon: currentWeather.weathercode,
         theme: configData.bgTheme
       }); //, conditionImage: imageUrl 
@@ -193,7 +208,7 @@ const fetchData = async (searchTerm) => {
   if (response.data.error) {
     return [];
   }
-
+  //console.log(response.data.predictions);
   return response.data.predictions;
 };
 
