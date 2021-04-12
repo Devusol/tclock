@@ -46,7 +46,7 @@ app.get("/home", function (req, res) {
   if (configData.connected) {
     weather.setLang('en');
     weather.setAPPID('d5c9e5a43c9e232a823985e3ba4de6cc');
-    weather.setZipCode(34787);
+    weather.setZipCode(configData.zipcode);
     weather.setUnits('imperial');
     currentWeather = weather.getSmartJSON(function (err, smart) {
       currentWeather = smart;
@@ -141,12 +141,15 @@ app.post("/wireless", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-  
+
   const entries = Object.entries(configData);
   //const tideStation = document.getElementsByTagName("iframe")[0].contentWindow;
   // console.log(tideStation.document.getElementsByClassName("modal-title"));
- 
-  res.render("location", { configuration: entries, theme: configData.bgTheme, location: configData.location, station: configData.stationID });
+
+  res.render("location", {
+    configuration: entries, theme: configData.bgTheme, location: configData.location,
+    station: configData.stationID, zipcode: configData.zipcode
+  });
 });
 
 app.post("/", function (req, res) {

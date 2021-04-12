@@ -1,78 +1,73 @@
 <%- include("partials/header"); -%>
-<body>
-    <div class="App">
-    <script>
 
-  /*       function darkness() {
-                  darkTheme = document.getElementById('dark');
-                  console.log(darkTheme, "darkness");
-              };
-      
-              function lightness() {
-                  lightTheme = document.getElementById('light');
-                  console.log(lightTheme,"lightness");
-              }; */
+    <body>
+        <div class="App">
 
-    </script>
-    <div class="configData">
-        <h1>Location Config Page</h1>
-        <!-- <h2>Current Location</h2>
-    <% // for (const [keys, values] of configuration) { %>
-    <ul><%= // `${keys} ${values}`%></ul>
-    <% //} %> 
-    
-    -->
-    </div>
+            <div class="configData">
+                <h1>Tide Clock Setup</h1>
 
+            </div>
 
-    <div class="locationForm">
-        <form action="/" method="post">
-            <% if (theme == "/css/styledark.css"){ %>
-                <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" checked onClick="swapStylesheet('/css/styledark.css')">
-            <label for="male">Dark Theme</label><br>
-            <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css"  onClick="swapStylesheet('/css/stylelight.css')">
-            <label for="female">Light Theme</label><br> 
-            <% } else if (theme == "/css/stylelight.css") { %>
-                <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" onClick="swapStylesheet('/css/styledark.css')">
-                <label for="male">Dark Theme</label><br>
-                <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css" checked onClick="swapStylesheet('/css/stylelight.css')">
-                <label for="female">Light Theme</label><br> 
-            <%}%>
-            <!-- <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" onClick="swapStylesheet('/css/styledark.css')">
-            <label for="male">Dark Theme</label><br>
-            <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css"  onClick="swapStylesheet('/css/stylelight.css')">
-            <label for="female">Light Theme</label><br> -->
+            <div class="locationForm">
+                <form action="/" method="post">
+                    <% if (theme=="/css/styledark.css" ){ %>
+                        <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" checked
+                            onClick="swapStylesheet('/css/styledark.css')">
+                        <label for="male">Dark Theme</label><br>
+                        <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css"
+                            onClick="swapStylesheet('/css/stylelight.css')">
+                        <label for="female">Light Theme</label><br>
+                        <% } else if (theme=="/css/stylelight.css" ) { %>
+                            <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css"
+                                onClick="swapStylesheet('/css/styledark.css')">
+                            <label for="male">Dark Theme</label><br>
+                            <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css" checked
+                                onClick="swapStylesheet('/css/stylelight.css')">
+                            <label for="female">Light Theme</label><br>
+                            <%}%>
 
-            <label for="inputLocation">Location Name</label>
-            <input type="text" name="inputLocation" value="<%= location %>">
-            <label for="inputStation">Station ID</label>
-            <input type="text" name="inputStation" value="<%= station %>">
-            <button type="submit" name="button">Submit</button>
-        </form>
-    </div>
-    <div class="tideSelector">
-        <iframe id="locationgetter" src="https://tidesandcurrents.noaa.gov/map/index.html?type=TidePredictions"
-            width="100%" height="500">
+                                <label for="inputLocation">Location Name</label>
+                                <input type="text" name="inputLocation" value="<%= location %>">
+                                <br>
+                                <label for="inputZipcode">Zipcode</label>
+                                <input type="text" name="inputZipcode" value="<%= zipcode %>">
+                                <br>
+                                <label for="inputStation">Station ID</label>
+                                <input type="text" name="inputStation" value="<%= station %>">
+                                <button type="submit" name="button">Submit</button>
+                                <br><br>
+                </form>
+            </div>
+
+            <div class="tideSelector">
+                <iframe id="locationgetter" src="https://tidesandcurrents.noaa.gov/map/index.html?type=TidePredictions"
+                    width="100%" height="500">
+                    <script>alert("hello from iframe!");</script>
+                </iframe>
+            </div>
+
             <script>
-                /* setInterval(function () {
-                    window.parent.postMessage('im in an iframe');
-                }, 1000) */
+                function swapStylesheet(sheet) {
+                    document.getElementById('swap').setAttribute('href', sheet);
+                }
+
+                /*var iframe = document.getElementById('locationgetter');
+                  iframeWin = iframe.contentWindow || iframe;
+                  iframeDoc = iframe.contentDocument || iframeWin.document;
+                  $(iframeDoc).ready(function (event) {
+                      console.log(iframe);
+                      console.log(iframeWin);
+                      console.log(iframeDoc);
+                      var iframeContent = iframeDoc.querySelectorAll('.nodal-title');
+                      console.log(iframeContent);
+                  });
+                  iframeDoc.write('\<script>window.parent.postMessage(, "http://tideclock.local:5000");\<\/script>');
+                  window.addEventListener('message', receiveMessage, false);
+                  function receiveMessage(evt) {
+                      console.log(evt.data);
+                  }*/
+
             </script>
-        </iframe>
-        <script>
-            /* window.addEventListener("message", (event) => {
-                /* if (event.origin !== "http://example.org:8080")
-                    return;
-                console.log(event.data);
-            }, false);   */
-        </script>
-    </div>
-    <script>
-        function swapStylesheet(sheet) {
-            document.getElementById('swap').setAttribute('href', sheet);
-        }
-
-    </script>
 
 
-    <%- include("partials/footer"); -%>
+            <%- include("partials/footer"); -%>
