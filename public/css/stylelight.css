@@ -1,100 +1,117 @@
-  html, body {
-    margin: 0;
-    /*height: 100%;*/
-    /*overflow: hidden;*/
-    background-color: white;
-   }
+html, body {
+  margin: 0;
+  /*height: 100%;*/
+  /*overflow: hidden;*/
+  background-color: white;
+}
 
-   .full-height {
-    height: 100%;
-    overflow:hidden;
-   }
-   
-  .App {
-    font-family: sans-serif;
-    /*text-align: center;*/
-    color: black;
-  }
-    
-  .location {
-    font-family: "Permanent Marker", cursive;
-    font-size: 2.5rem;
-    margin: 30px 0 0 30px;
-  }
+.full-height {
+  height: 100%;
+  overflow:hidden;
+}
  
-  .wifiImage{
-    position: absolute;
-    width: 2.5rem;
-    top: 20px;
-    right: 30px;
- }  
+.App {
+  font-family:'Open Sans', sans-serif;
+  /*text-align: center;*/
+  color: black;
+  font-weight: 800;
+}
+  
+.location {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 30px 0 0 30px;
+}
 
- .currentWeather{
+.wifiImage{
   position: absolute;
   width: 2.5rem;
-  top: 5px;
+  top: 20px;
+  right: 30px;
+}
+
+.currentWeather {
+  position: absolute;
+  width: 2.5rem;
+  top: 10px;
   right: 160px;
-} 
+}
 
 .weatherText{
   position: absolute;
   width: 2.5rem;
-  top: 20px;
-  right: 100px;
+  top: 75px;
+  left: 27px;
 } 
 
-  .stationID{
-    margin: 0 0 0 30px;
-  }
-  
-  .time {
-    font-family: 'Varela', sans-serif;
-    font-size: 9rem;
-    text-align: center;
-    margin: 10px 0 -10px 0;
-  }
+.weatherIco{
+  width: 100px;
+  height: 100px;
+}
 
-  .tideSelector{
-    margin: auto;
-  }
-  
-  
-  li{
-    margin: 0 25px 0 25px;
-    text-align: center;
-    color: white;
-    display: inline;
-  }
-  
-  .status {
-    width: 5%;
-  }
-  
-  .tide {
-    width: 3.5rem;
-    
-  }
-  .tidefont{
-    font-family: 'Varela', sans-serif;
-    font-size: 5rem;
-  }
-  
-  .day {
-    font-size: 1rem;
-    margin: 0 0 -30px 0;
-  }
+.stationID{
+position: absolute;
+font-size: 0.65rem;
+top: 45px;
+right: 20px;
+text-align: center
+}
 
-  .configData {
-    width: fit-content;
-    margin: auto;
-  }
-  
-  .locationForm{
-    width: fit-content;
-    margin: auto;
-  }
+.time {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 9rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 40px 0 -10px 0;
+}
 
-  .displayForm{
-    width: fit-content;
-    margin: auto;
-  }
+.tideSelector{
+  margin: auto;
+}
+
+
+li{
+  margin: 0 25px 0 25px;
+  text-align: center;
+  color: black;
+  display: inline;
+}
+
+.status {
+  width: 5%;
+}
+
+.tide {
+  width: 3.5rem;
+  
+}
+
+.tidefont{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 5rem;
+  font-weight: 800;
+}
+
+.day {
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 800;
+  top: 70px;
+  left: 32px;
+}
+
+.configData {
+  width: fit-content;
+  margin: auto;
+}
+
+.locationForm{
+  width: fit-content;
+  margin: auto;
+}
+
+.displayForm{
+  width: fit-content;
+  margin: auto;
+}

@@ -27,10 +27,21 @@
 
     <div class="locationForm">
         <form action="/" method="post">
-            <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" onClick="swapStylesheet('/css/styledark.css')">
+            <% if (theme == "/css/styledark.css"){ %>
+                <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" checked onClick="swapStylesheet('/css/styledark.css')">
             <label for="male">Dark Theme</label><br>
             <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css"  onClick="swapStylesheet('/css/stylelight.css')">
-            <label for="female">Light Theme</label><br>
+            <label for="female">Light Theme</label><br> 
+            <% } else if (theme == "/css/stylelight.css") { %>
+                <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" onClick="swapStylesheet('/css/styledark.css')">
+                <label for="male">Dark Theme</label><br>
+                <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css" checked onClick="swapStylesheet('/css/stylelight.css')">
+                <label for="female">Light Theme</label><br> 
+            <%}%>
+            <!-- <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" onClick="swapStylesheet('/css/styledark.css')">
+            <label for="male">Dark Theme</label><br>
+            <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css"  onClick="swapStylesheet('/css/stylelight.css')">
+            <label for="female">Light Theme</label><br> -->
 
             <label for="inputLocation">Location Name</label>
             <input type="text" name="inputLocation" value="<%= location %>">

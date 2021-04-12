@@ -141,9 +141,11 @@ app.post("/wireless", function (req, res) {
 });
 
 app.get("/", function (req, res) {
+  
   const entries = Object.entries(configData);
   //const tideStation = document.getElementsByTagName("iframe")[0].contentWindow;
   // console.log(tideStation.document.getElementsByClassName("modal-title"));
+ 
   res.render("location", { configuration: entries, theme: configData.bgTheme, location: configData.location, station: configData.stationID });
 });
 

@@ -5,14 +5,15 @@
             <h1 class="location">
                 <%= location %>
             </h1>
-            <p class="stationID">Station ID: <%= station %>
-            </p>
             <div class="wificonnected">
                 <% if (wifiCon===true) { %>
                     <img class="wifiImage" src="images/Connected.png" alt="wifi con" />
                     <% } else { %>
                         <img class="wifiImage" src="images/Disconnected.png" alt="Low Tide" />
                         <% } %>
+                            <p class="stationID">Station ID: <br>
+                                <%= station %>
+                            </p>
             </div>
             <div class="currentWeather">
                 <% if (weatherIcon < 232) { %>
@@ -40,13 +41,13 @@
                                                                 src="http://openweathermap.org/img/wn/04d.png"
                                                                 alt="Overcast" />
                                                             <% } %>
-                                                                <%= conditions %>
+                                                                <!--  <%= conditions %> -->
 
+                                                                <div class=weatherText>
+                                                                    <%= temperature %>°F
+                                                                </div>
+            </div>
 
-            </div>
-            <div class=weatherText>
-                <%= temperature %> °F
-            </div>
 
             <div id="currentTime" class="time">
                 <script>
