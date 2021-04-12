@@ -1,0 +1,100 @@
+  html, body {
+    margin: 0;
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    background-color: black;
+   }
+
+   .full-height {
+    height: 100%;
+    overflow:hidden;
+   }
+   
+  .App {
+    font-family: "Open Sans";
+    /*text-align: center;*/
+    color: white;
+  }
+    
+  .location {
+    font-family: "Permanent Marker", cursive;
+    font-size: 2.5rem;
+    margin: 30px 0 0 30px;
+  }
+ 
+  .wifiImage{
+    position: absolute;
+    width: 2.5rem;
+    top: 20px;
+    right: 30px;
+ }  
+
+ .currentWeather{
+  position: absolute;
+  width: 2.5rem;
+  top: 5px;
+  right: 160px;
+} 
+
+.weatherText{
+  position: absolute;
+  width: 2.5rem;
+  top: 20px;
+  right: 100px;
+} 
+
+  .stationID{
+    margin: 0 0 0 30px;
+  }
+  
+  .time {
+    font-family: 'Varela', sans-serif;
+    font-size: 9rem;
+    text-align: center;
+    margin: 10px 0 -10px 0;
+  }
+
+  .tideSelector{
+    margin: auto;
+  }
+  
+  
+  li{
+    margin: 0 25px 0 25px;
+    text-align: center;
+    color: white;
+    display: inline;
+  }
+  
+  .status {
+    width: 5%;
+  }
+  
+  .tide {
+    width: 3.5rem;
+    
+  }
+  .tidefont{
+    font-family: 'Varela', sans-serif;
+    font-size: 5rem;
+  }
+  
+  .day {
+    font-size: 1rem;
+    margin: 0 0 -30px 0;
+  }
+
+  .configData {
+    width: fit-content;
+    margin: auto;
+  }
+  
+  .locationForm{
+    width: fit-content;
+    margin: auto;
+  }
+
+  .displayForm{
+    width: fit-content;
+    margin: auto;
+  }

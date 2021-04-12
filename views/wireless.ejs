@@ -1,0 +1,27 @@
+<%- include("partials/header"); -%>
+<h1>Wifi Setup Page</h1>
+<div class="wifiConfig">
+    <h3>Current Config.json settings</h3>
+
+    <% for (const [keys, values] of configuration) { %>
+    <ul><%= `${keys} ${values}`%></ul>
+    <% } %>
+
+    <h3>Connection Status:</h3>
+    <ul>ip address from ifconfig: <%= ipadd %></ul>
+    <ul>eth0 status: <%= eth %></ul>
+    <ul>wlan0 status: <%= wlan %></ul>
+    <h3>Available Networks:</h3>
+    <% networks.forEach(element => { %>
+    <ul><a href="<%= element.ssid %>"><%= element.ssid %></a></ul>
+    <% }) %>
+</div>
+<form action="/wireless" method="post">
+    <label for="ssid">SSID:</label>
+    <input id="ssid" type="text" name="ssid" placeholder="select ssid">
+    <label for="password">PASSWORD:</label>
+    <input id="password" type="text" name="password" placeholder="enter password">
+    <button type="submit" name="button">Connect</button>
+</form>
+
+<%- include("partials/footer"); -%>
