@@ -2,53 +2,82 @@
 
     <body>
         <div class="App">
+            <div>
+                <div class="configData">
 
-            <div class="configData">
-                <h1>Tide Clock Setup</h1>
+                    <div class="configFloat">
+                        <h1>Tide Clock Setup</h1>
 
+
+                        <div class="locationForm">
+                            <form class="formInputs" action="/" method="post">
+                                <% if (theme=="/css/styledark.css" ){ %>
+                                    <div class="chkBx">
+                                        <div class="darkChkBx"><input type="radio" id="dark" name="bgTheme"
+                                                value="/css/styledark.css" checked
+                                                onClick="swapStylesheet('/css/styledark.css')">
+                                            <label for="male">Dark Theme</label><br>
+                                        </div>
+                                        <div class="lightChkBx">
+                                            <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css"
+                                                onClick="swapStylesheet('/css/stylelight.css')">
+                                            <label for="female">Light Theme</label><br>
+                                        </div>
+
+                                        <% } else if (theme=="/css/stylelight.css" ) { %>
+
+                                            <div>
+                                                <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css"
+                                                    onClick="swapStylesheet('/css/styledark.css')">
+                                                <label for="male">Dark Theme</label><br>
+                                            </div>
+                                            <div>
+                                                <input type="radio" id="light" name="bgTheme"
+                                                    value="/css/stylelight.css" checked
+                                                    onClick="swapStylesheet('/css/stylelight.css')">
+                                                <label for="female">Light Theme</label><br>
+                                            </div>
+                                    </div>
+                                    <%}%>
+                        </div>
+                        <div>
+                            <label for="inputLocation">Location Name</label>
+                            <input type="text" name="inputLocation" value="<%= location %>" required>
+                            <br>
+                            <label for="inputZipcode">Zipcode</label><!--  -->
+                            <input type="number" name="inputZipcode" value="<%= zipcode %>" minlength="5" maxlength="5"
+                                required>
+                            <br>
+                            <label for="inputStation">Station ID</label>
+                            <input type="number" name="inputStation" value="<%= station %>" required>
+                            <button type="submit" name="button">Submit</button>
+                        </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="themeIconsClass">
+                    <img id="themeIcons" src="images/themeIconsHor.png" alt="theme icons">
+                </div>
             </div>
-
-            <div class="locationForm">
-                <form action="/" method="post">
-                    <% if (theme=="/css/styledark.css" ){ %>
-                        <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css" checked
-                            onClick="swapStylesheet('/css/styledark.css')">
-                        <label for="male">Dark Theme</label><br>
-                        <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css"
-                            onClick="swapStylesheet('/css/stylelight.css')">
-                        <label for="female">Light Theme</label><br>
-                        <% } else if (theme=="/css/stylelight.css" ) { %>
-                            <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css"
-                                onClick="swapStylesheet('/css/styledark.css')">
-                            <label for="male">Dark Theme</label><br>
-                            <input type="radio" id="light" name="bgTheme" value="/css/stylelight.css" checked
-                                onClick="swapStylesheet('/css/stylelight.css')">
-                            <label for="female">Light Theme</label><br>
-                            <%}%>
-
-                                <label for="inputLocation">Location Name</label>
-                                <input type="text" name="inputLocation" value="<%= location %>">
-                                <br>
-                                <label for="inputZipcode">Zipcode</label>
-                                <input type="text" name="inputZipcode" value="<%= zipcode %>">
-                                <br>
-                                <label for="inputStation">Station ID</label>
-                                <input type="text" name="inputStation" value="<%= station %>">
-                                <button type="submit" name="button">Submit</button>
-                                <br><br>
-                </form>
-            </div>
-
             <div class="tideSelector">
                 <iframe id="locationgetter" src="https://tidesandcurrents.noaa.gov/map/index.html?type=TidePredictions"
                     width="100%" height="500">
-                    <script>alert("hello from iframe!");</script>
+
                 </iframe>
             </div>
 
             <script>
                 function swapStylesheet(sheet) {
-                    document.getElementById('swap').setAttribute('href', sheet);
+                    let swap = document.getElementById('swap')
+                    swap.setAttribute('href', sheet);
+                    if (swap.href == "http://tideclock.local:5000/css/stylelight.css") {
+                        document.body.style.backgroundColor = "ghostwhite";
+                    }
+                    if (swap.href == "http://tideclock.local:5000/css/styledark.css") {
+                        document.body.style.backgroundColor = "black";
+                    }
+
                 }
 
                 /*var iframe = document.getElementById('locationgetter');

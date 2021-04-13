@@ -1,9 +1,1 @@
-{
-  "location": "Port Canaveral, FL",
-  "stationID": "8721604",
-  "ssid": "doesnt matter",
-  "password": "rootbeer",
-  "connected": true,
-  "bgTheme": "/css/styledark.css",
-  "zipcode": "34787"
-}
+{"location":"Ponce Inlet, FL","stationID":"8721138","ssid":"doesnt matter","password":"rootbeer","connected":true,"bgTheme":"/css/styledark.css","zipcode":"34787"}

@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   /*height: 100%;*/
   /*overflow: hidden;*/
-  background-color: white;
+  background-color: rgb(240, 240, 180);
 }
 
 .full-height {
@@ -13,41 +13,48 @@ html, body {
 .App {
   font-family:'Open Sans', sans-serif;
   /*text-align: center;*/
-  color: black;
+  color: rgb(51 49 49);
   font-weight: 800;
 }
   
 .location {
   font-family: 'Open Sans', sans-serif;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin: 30px 0 0 30px;
+  color: rgb(51 49 49);
+  text-shadow: 5px 4px 3px #afadb2;
 }
 
 .wifiImage{
   position: absolute;
   width: 2.5rem;
-  top: 20px;
-  right: 30px;
+  top: 11px;
+  right: 31px;
 }
 
 .currentWeather {
   position: absolute;
-  width: 2.5rem;
-  top: 10px;
-  right: 160px;
+  width: 5rem;
+  top: 20px;
+  right: 225px;
 }
 
 .weatherText{
   position: absolute;
-  width: 2.5rem;
-  top: 75px;
+  top: 100px;
   left: 27px;
+  font-size: 2rem;
+  padding-top: 15px;
+  text-shadow: 5px 4px 3px #afadb2;
+
 } 
 
 .weatherIco{
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
+  padding-left: 10px;
+  
 }
 
 .stationID{
@@ -60,10 +67,11 @@ text-align: center
 
 .time {
   font-family: 'Open Sans', sans-serif;
-  font-size: 9rem;
+  font-size: 10rem;
   font-weight: 800;
   text-align: center;
-  margin: 40px 0 -10px 0;
+  margin: 80px 0 -5px 0;
+  text-shadow: 7px 7px 3px #afadb2;
 }
 
 .tideSelector{
@@ -71,11 +79,12 @@ text-align: center
 }
 
 
-li{
-  margin: 0 25px 0 25px;
+li {
+  margin: 0 30px 0 30px;
   text-align: center;
-  color: black;
+  color: rgb(51 49 49);
   display: inline;
+  text-shadow: 7px 7px 3px #afadb2;
 }
 
 .status {
@@ -83,35 +92,91 @@ li{
 }
 
 .tide {
-  width: 3.5rem;
+  width: 6rem;
   
 }
 
 .tidefont{
   font-family: 'Open Sans', sans-serif;
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 800;
 }
 
 .day {
   position: absolute;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 800;
   top: 70px;
   left: 32px;
+  text-shadow: 5px 4px 3px #afadb2;
+  color: rgb(51 49 49);
 }
 
 .configData {
   width: fit-content;
   margin: auto;
+  padding: 10px;
 }
 
 .locationForm{
   width: fit-content;
   margin: auto;
+  text-shadow: 7px 3px 4px #c1b8b8;
 }
 
 .displayForm{
   width: fit-content;
   margin: auto;
+}
+
+.configData h1 {
+  text-shadow: 4px 1px 5px grey;
+}
+
+#themeIcons {
+  width: 350px;
+ }
+ 
+input[type="text"], input[type="number"]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  width: 100%;
+  background-color: #7ed957;
+  font-size: x-large;
+  padding: 14px 0px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+.lightChkBx {
+  float: right;
+}
+
+.darkChkBx {
+  float: left;
+}
+
+.chkBx{
+  padding-bottom: 40px;
+  
+}
+ 
+#currentTime{
+  color: rgb(0 0 0);
+  text-shadow: 7px 7px 3px #afadb2;
 }

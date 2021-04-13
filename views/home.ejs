@@ -17,28 +17,28 @@
             </div>
             <div class="currentWeather">
                 <% if (weatherIcon < 232) { %>
-                    <img class="weatherIco" src="http://openweathermap.org/img/wn/11d.png" alt="Tstorms" />
+                    <img class="weatherIco" src="images/11d.png" alt="Tstorms" />
                     <% } else if (weatherIcon> 233 && weatherIcon < 400) { %>
-                            <img class="weatherIco" src="http://openweathermap.org/img/wn/09d.png" alt="Drizzle" />
+                            <img class="weatherIco" src="images/09d.png" alt="Drizzle" />
                             <% } else if (weatherIcon> 400 && weatherIcon < 532) { %>
-                                    <img class="weatherIco" src="http://openweathermap.org/img/wn/10d.png" alt="Rain" />
+                                    <img class="weatherIco" src="images/10d.png" alt="Rain" />
                                     <% } else if (weatherIcon> 533 && weatherIcon < 700) { %>
-                                            <img class="weatherIco" src="http://openweathermap.org/img/wn/13d.png"
+                                            <img class="weatherIco" src="images/13d.png"
                                                 alt="Rain" />
                                             <% } else if (weatherIcon==800) { %>
-                                                <img class="weatherIco" src="http://openweathermap.org/img/wn/01d.png"
+                                                <img class="weatherIco" src="images/01d.png"
                                                     alt="Clear" />
                                                 <% } else if (weatherIcon==801) { %>
                                                     <img class="weatherIco"
-                                                        src="http://openweathermap.org/img/wn/02d.png"
+                                                        src="images/02d.png"
                                                         alt="Few Clouds" />
                                                     <% } else if (weatherIcon==802) { %>
                                                         <img class="weatherIco"
-                                                            src="http://openweathermap.org/img/wn/03d.png"
+                                                            src="images/03d.png"
                                                             alt="Scattered Clouds" />
                                                         <% } else if (weatherIcon>= 803) { %>
                                                             <img class="weatherIco"
-                                                                src="http://openweathermap.org/img/wn/04d.png"
+                                                                src="images/04d.png"
                                                                 alt="Overcast" />
                                                             <% } %>
                                                                 <!--  <%= conditions %> -->
