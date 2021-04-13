@@ -47,6 +47,8 @@ function pingcheck {
 if [ $? -eq 0 ]; then
         (echo "ping yep") &>> scriptlog
         jq '.connected = true' $confpath > tmp.$$.json && mv tmp.$$.json $confpath
+        ipadd="http://"$(ip -4 addr show wlan0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')":5000"
+        qrencode $ipadd -o ~/tclock/public/images/ipqrcode.png
         cd /home/pi/tclock && node app.js &
         
 	else                            #if ping fails write false to config.json file and start the AP network
@@ -57,6 +59,8 @@ if [ $? -eq 0 ]; then
 		if [ $? -eq 0 ]; then
 			(echo "ping yep") &>> scriptlog
        			jq '.connected = true' $confpath > tmp.$$.json && mv tmp.$$.json $confpath
+                ipadd="http://"$(ip -4 addr show wlan0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')":5000"
+                qrencode $ipadd -o ~/tclock/public/images/ipqrcode.png
         		cd /home/pi/tclock && node app.js &
         	
 		else                            #if ping fails write false to config.json file and start the AP network

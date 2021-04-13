@@ -29,7 +29,7 @@ html, body {
 .wifiImage{
   position: absolute;
   width: 2.5rem;
-  top: 11px;
+  top: 28px;
   right: 31px;
 }
 
@@ -57,12 +57,12 @@ html, body {
   
 }
 
-.stationID{
-position: absolute;
-font-size: 0.65rem;
-top: 45px;
-right: 20px;
-text-align: center
+.stationID {
+  position: absolute;
+  font-size: 0.65rem;
+  top: 66px;
+  right: 20px;
+  text-align: center;
 }
 
 .time {
@@ -179,4 +179,15 @@ button[type=submit]:hover {
 #currentTime{
   color: rgb(0 0 0);
   text-shadow: 7px 7px 3px #afadb2;
+}
+
+.qrcode{
+  width: 50px;
+  position: absolute;
+  right: 28px;
+  top: 120px
+}
+
+#qrcodeImage {
+  width:55px;
 }
