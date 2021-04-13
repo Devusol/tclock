@@ -172,6 +172,7 @@ app.post("/", function (req, res) {
   configData.location = req.body.inputLocation;
   configData.stationID = req.body.inputStation;
   configData.bgTheme = req.body.bgTheme;
+  configData.zipcode = req.body.inputZipcode;
 
   console.log(req.body.inputLocation, configData);
   updateConfig().

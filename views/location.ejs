@@ -42,14 +42,14 @@
                         </div>
                         <div>
                             <label for="inputLocation">Location Name</label>
-                            <input type="text" name="inputLocation" value="<%= location %>" required>
+                            <input required type="text" name="inputLocation" value="<%= location %>"  />
                             <br>
-                            <label for="inputZipcode">Zipcode</label><!--  -->
-                            <input type="number" name="inputZipcode" value="<%= zipcode %>" minlength="5" maxlength="5"
-                                required>
+                            <label for="inputZipcode">Zipcode</label>
+                            <input required minlength="5" maxlength="5" type="number" name="inputZipcode" value="<%= zipcode %>" 
+                                />
                             <br>
                             <label for="inputStation">Station ID</label>
-                            <input type="number" name="inputStation" value="<%= station %>" required>
+                            <input required type="number" name="inputStation" value="<%= station %>"  />
                             <button type="submit" name="button">Submit</button>
                         </div>
                         </form>
