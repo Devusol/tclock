@@ -70,10 +70,9 @@ html, body {
   margin: 80px 0 -5px 0;
 }
 
-.tideSelector{
-  margin: auto;
+.tideSelector {
+  margin: 120px 0;
 }
-
 
 li{
   margin: 0 30px 0 30px;
@@ -110,11 +109,34 @@ li{
   padding: 10px;
 }
 
-.locationForm{
-  width: fit-content;
-  margin: auto;
-  text-shadow: 7px 3px 4px grey;
+
+#configTitle {
+  width: auto;
+  text-align: center;
+  margin: 10px 0;
 }
+
+
+.locationInputs{
+  width: 350px;
+}
+.locationInput{
+  width: 60%;
+  float:left;
+}
+.zipInput{
+  width: 37%;
+  float:right;
+}
+.stationInput {
+  float: left;
+  width: 37%;
+}
+.inputButton {
+  width: 37%;
+  float: right;
+}
+
 
 .displayForm{
   width: fit-content;
@@ -131,21 +153,20 @@ li{
 
 input[type="text"], input[type="number"]{
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+  padding: 6px 20px;
+  margin: 2px 0px;
+  /* display: inline-block; */
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
   box-sizing: border-box;
 }
 
 button[type=submit] {
   width: 100%;
   background-color: #7ed957;
-  font-size: x-large;
-  padding: 14px 0px;
-  margin: 8px 0;
-  border: none;
+  font-size: medium;
+  padding: 5px 0px;
+  margin: 21px 0 0 0;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -171,10 +192,13 @@ button[type=submit]:hover {
 .qrcode{
   width: 50px;
   position: absolute;
-  right: 28px;
+  right: 35px;
   top: 120px
 }
 
 #qrcodeImage {
-  width:55px;
+  width: 65px;
+  border-bottom-color: black;
+  padding: 2px;
+  background: white;
 }

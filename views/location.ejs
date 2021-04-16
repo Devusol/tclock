@@ -6,16 +6,16 @@
                 <div class="configData">
 
                     <div class="configFloat">
-                        <h1>Tide Clock Setup</h1>
+                        <h2 id="configTitle">Tide Clock Setup</h2>
 
 
                         <div class="locationForm">
                             <form class="formInputs" action="/" method="post">
                                 <% if (theme=="/css/styledark.css" ){ %>
                                     <div class="chkBx">
-                                        <div class="darkChkBx"><input type="radio" id="dark" name="bgTheme"
-                                                value="/css/styledark.css" checked
-                                                onClick="swapStylesheet('/css/styledark.css')">
+                                        <div class="darkChkBx">
+                                            <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css"
+                                                checked onClick="swapStylesheet('/css/styledark.css')">
                                             <label for="male">Dark Theme</label><br>
                                         </div>
                                         <div class="lightChkBx">
@@ -26,12 +26,12 @@
 
                                         <% } else if (theme=="/css/stylelight.css" ) { %>
 
-                                            <div>
+                                            <div class="darkChkBx">
                                                 <input type="radio" id="dark" name="bgTheme" value="/css/styledark.css"
                                                     onClick="swapStylesheet('/css/styledark.css')">
                                                 <label for="male">Dark Theme</label><br>
                                             </div>
-                                            <div>
+                                            <div class="lightChkBx">
                                                 <input type="radio" id="light" name="bgTheme"
                                                     value="/css/stylelight.css" checked
                                                     onClick="swapStylesheet('/css/stylelight.css')">
@@ -40,29 +40,35 @@
                                     </div>
                                     <%}%>
                         </div>
-                        <div>
-                            <label for="inputLocation">Location Name</label>
-                            <input required type="text" name="inputLocation" value="<%= location %>"  />
-                            <br>
-                            <label for="inputZipcode">Zipcode</label>
-                            <input required minlength="5" maxlength="5" type="number" name="inputZipcode" value="<%= zipcode %>" 
-                                />
-                            <br>
-                            <label for="inputStation">Station ID</label>
-                            <input required type="number" name="inputStation" value="<%= station %>"  />
-                            <button type="submit" name="button">Submit</button>
+                        <div class="locationInputs">
+                            <div class="locationInput">
+                                <label for="inputLocation">Location Name</label>
+                                <input required type="text" name="inputLocation" value="<%= location %>" />
+                            </div>
+                            <div class="zipInput">
+                                <label for="inputZipcode">Zipcode</label>
+                                <input required minlength="5" maxlength="5" type="number" name="inputZipcode"
+                                    value="<%= zipcode %>" />
+                            </div>
+                            <div class="stationInput">
+                                <label for="inputStation">Station ID</label>
+                                <input required type="number" name="inputStation" value="<%= station %>" />
+                            </div>
+                            <div class="inputButton">
+                                <button type="submit" name="button">Submit</button>
+                            </div>
                         </div>
                         </form>
 
                     </div>
                 </div>
-                <div class="themeIconsClass">
+                <!--   <div class="themeIconsClass">
                     <img id="themeIcons" src="images/themeIconsHor.png" alt="theme icons">
-                </div>
+                </div>-->
             </div>
             <div class="tideSelector">
                 <iframe id="locationgetter" src="https://tidesandcurrents.noaa.gov/map/index.html?type=TidePredictions"
-                    width="100%" height="500">
+                    width="100%" height="560px">
 
                 </iframe>
             </div>
