@@ -1,1 +1,9 @@
-{"location":"Ponce Inlet, FL","stationID":"8721138","ssid":"doesnt matter","password":"rootbeer","connected":true,"bgTheme":"/css/styledark.css","zipcode":"32128"}
+{
+  "location": "Ponce Inlet",
+  "stationID": "8721138",
+  "ssid": "doesnt matter",
+  "password": "rootbeer",
+  "connected": true,
+  "bgTheme": "/css/stylelight.css",
+  "zipcode": "32128"
+}
