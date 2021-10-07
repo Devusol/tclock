@@ -1,0 +1,28 @@
+/* body {
+    background-image: url("/css/tcSetup.png");
+} */
+
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+    font-family: "Open sans", sans-serif;
+    position: absolute;
+    top: 184px;
+    right: 171px;
+    /* background: #bf959594; */
+    color: #f1f1f1;
+    width: fit-content;
+    /* padding: 20px; */
+    /* z-index: 0; */
+    font-size: 3.85rem;
+    font-weight: 500;
+    margin: auto;
+}
