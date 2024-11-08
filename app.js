@@ -1,4 +1,4 @@
-const dataFile = "/home/pi/tclock/public/data/config.json";
+const dataFile = "./public/data/config.json";
 let configData = require("./public/data/config.json");
 
 const express = require("express");
@@ -28,18 +28,18 @@ let displayTides = [{
   "type": "X"
 }];
 
-let fsWait = false;
+// let fsWait = false;
 //redirectPort();
-fs.watch(dataFile, (event, filename) => {
-  if (filename) {
-    if (fsWait) return;
-    fsWait = setTimeout(() => {
-      fsWait = false;
-    }, 100);
+// fs.watch(dataFile, (event, filename) => {
+//   if (filename) {
+//     if (fsWait) return;
+//     fsWait = setTimeout(() => {
+//       fsWait = false;
+//     }, 100);
 
-    cycleApp();
-  }
-});
+//     cycleApp();
+//   }
+// });
 //mongoose.connect('mongodb://localhose/postDB', {useNewUrlParser: true});
 //getClose();
 
@@ -48,6 +48,7 @@ app.get("/home", function (req, res) {
   let currentWeather;
 
   if (configData.connected) {
+    
     weather.setLang('en');
     weather.setAPPID('d5c9e5a43c9e232a823985e3ba4de6cc');
     weather.setZipCode(configData.zipcode);
@@ -92,7 +93,7 @@ app.get("/home", function (req, res) {
            //console.log(`${Date(day).toLocaleString()}<${Date(element).toLocaleString()}`);
          } */
         if (day == new Date(element.t)) {
-          Reload();
+          // Reload();
         }
 
 
@@ -121,39 +122,39 @@ app.get("/home", function (req, res) {
   }
 });
 
-app.get("/wireless", function (req, res) {
-  const entries = Object.entries(configData);
-  let networks;
-  let networkConfig;
-  function getNetworks() {
-    iwlist.scan({ iface: 'wlan0', sudo: true }, function (err, res) {
-      // console.log(res.ssid);
-      networks = res;
-      ifconfig.status('eth0', function (err, status) {
-        // console.log(status.ipv4_address);
-        networkConfig = status.ipv4_address;
-        displayNetworks();
-      });
-    });
-  }
-  function displayNetworks() {
-    // console.log(networks);
-    res.render("wireless", { configuration: entries, networks: networks, ipadd: networkConfig, eth: "na", wlan: "na" });
-  }
-  getNetworks(displayNetworks);
-});
+// app.get("/wireless", function (req, res) {
+//   const entries = Object.entries(configData);
+//   let networks;
+//   let networkConfig;
+//   function getNetworks() {
+//     iwlist.scan({ iface: 'wlan0', sudo: true }, function (err, res) {
+//       // console.log(res.ssid);
+//       networks = res;
+//       ifconfig.status('eth0', function (err, status) {
+//         // console.log(status.ipv4_address);
+//         networkConfig = status.ipv4_address;
+//         displayNetworks();
+//       });
+//     });
+//   }
+//   function displayNetworks() {
+//     // console.log(networks);
+//     res.render("wireless", { configuration: entries, networks: networks, ipadd: networkConfig, eth: "na", wlan: "na" });
+//   }
+//   getNetworks(displayNetworks);
+// });
 
 
-app.post("/wireless", function (req, res) {
-  wifiOptions.ssid = req.body.ssid;
-  wifiOptions.passphrase = req.body.password;
-  killAP();
-  killDNS();
-  connectTo(wifiOptions);
-  Reload();
-  res.redirect("/wireless");
+// app.post("/wireless", function (req, res) {
+//   wifiOptions.ssid = req.body.ssid;
+//   wifiOptions.passphrase = req.body.password;
+//   killAP();
+//   killDNS();
+//   connectTo(wifiOptions);
+//   Reload();
+//   res.redirect("/wireless");
 
-});
+// });
 
 app.get("/", function (req, res) {
 
@@ -175,15 +176,15 @@ app.post("/", function (req, res) {
   configData.zipcode = req.body.inputZipcode;
 
   console.log(req.body.inputLocation, configData);
-  updateConfig().
-    then(Reload()).
-    then(res.redirect("/home"));
+  updateConfig().then(res.redirect("/home"));
+    // then(Reload()).
+    
 
 });
 
-app.listen(5000, function () {
+app.listen(5006, function () {
   console.log("Server started on port 5000");
-  Reload();
+  // Reload();
 });
 
 
@@ -213,52 +214,52 @@ const fetchData = async (searchTerm) => {
   return response.data.predictions;
 };
 
-const Reload = () => {
-  exec('sudo killall chromium-browse; DISPLAY=:0 chromium-browser  --noerrdialogs --disable-infobars --disable-notifications --check-for-update-interval=31536000 --kiosk --app=http://localhost:5000/home', (err, stdout, stderr) => {
-    if (err) {
-      //some err occurred
-      console.error(err)
-    } else {
-      // the *entire* stdout and stderr (buffered)
-      console.log(`stdout: ${stdout}`);
-      console.log(`stderr: ${stderr}`);
-    }
-  });
-};
+// const Reload = () => {
+//   exec('sudo killall chromium-browse; DISPLAY=:0 chromium-browser  --noerrdialogs --disable-infobars --disable-notifications --check-for-update-interval=31536000 --kiosk --app=http://localhost:5000/home', (err, stdout, stderr) => {
+//     if (err) {
+//       //some err occurred
+//       console.error(err)
+//     } else {
+//       // the *entire* stdout and stderr (buffered)
+//       console.log(`stdout: ${stdout}`);
+//       console.log(`stderr: ${stderr}`);
+//     }
+//   });
+// };
 
-const connectTo = () => {
-  wpa_supplicant.enable(wifiOptions, function (err) {
-    console.log(err);
-  });
-};
+// const connectTo = () => {
+//   wpa_supplicant.enable(wifiOptions, function (err) {
+//     console.log(err);
+//   });
+// };
 
-const cycleApp = () => {
-  exec("./cyclenode.sh", (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return;
-    }
-    console.log(stdout);
-  });
-};
+// const cycleApp = () => {
+//   exec("./cyclenode.sh", (error, stdout, stderr) => {
+//     if (error) {
+//       console.log(`error: ${error.message}`);
+//       return;
+//     }
+//     if (stderr) {
+//       console.log(`stderr: ${stderr}`);
+//       return;
+//     }
+//     console.log(stdout);
+//   });
+// };
 
-const killDNS = () => {
-  exec("sudo systemctl stop dnsmasq.service", (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return;
-    }
-    console.log(stdout);
-  });
-};
+// const killDNS = () => {
+//   exec("sudo systemctl stop dnsmasq.service", (error, stdout, stderr) => {
+//     if (error) {
+//       console.log(`error: ${error.message}`);
+//       return;
+//     }
+//     if (stderr) {
+//       console.log(`stderr: ${stderr}`);
+//       return;
+//     }
+//     console.log(stdout);
+//   });
+// };
 
 const updateConfig = async () => {
   await fs.writeFile(dataFile, JSON.stringify(configData), (err) => {
